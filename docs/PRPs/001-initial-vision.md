@@ -2,8 +2,9 @@
 
 ## Document Information
 - **Created**: 2025-10-21
-- **Status**: Draft
-- **Version**: 1.0
+- **Updated**: 2025-10-21
+- **Status**: Decisions Made
+- **Version**: 2.0
 
 ## Project Vision
 
@@ -95,43 +96,101 @@ Vibe-Song provides intelligent music recommendations by:
 - Mobile native apps (web-first)
 - Offline playback
 
-## Open Questions
+## Decisions Made ✅
 
-1. **Music Source**: What music API/service to integrate with?
-   - Spotify API?
-   - YouTube Music?
-   - Multiple sources?
+### 1. **Music Source** - DECIDED
+**Primary**: Deezer API
+- 100% free, no API key required
+- 90+ million tracks
+- 30-second preview playback
+- Rich metadata and search
 
-2. **Mood Input Method**: How do users express their mood?
-   - Text input?
-   - Emoji selection?
-   - Slider (energy, mood, etc.)?
-   - Combination?
+**Secondary**: Last.fm API
+- Free API (requires key)
+- Mood tags and genre classification
+- Similar track recommendations
+- Enhance metadata with tags
 
-3. **Tech Stack**: What technologies to use?
-   - Frontend: React, Vue, or other?
-   - Backend: Node.js, Python, or other?
-   - Database: PostgreSQL, MongoDB, or other?
+**Optional**: Jamendo API (future)
+- Creative Commons music
+- Full-length playback
+- Free and legal
 
-4. **Recommendation Engine**: How to generate recommendations?
-   - Rule-based?
-   - Machine learning?
-   - Hybrid approach?
-   - Use existing recommendation APIs?
+### 2. **Mood Input Method** - DECIDED
+**Combination Approach**:
+- **Primary**: Emoji Selection (😊 😢 😌 🔥 💭)
+- **Secondary**: Sliders (Energy Level, Mood Valence)
+- **Optional**: Text Input (future enhancement)
 
-5. **User Authentication**: How to handle users?
-   - Email/password?
-   - Social login?
-   - Anonymous usage?
-   - Progressive enhancement?
+### 3. **Tech Stack** - DECIDED
+
+**Frontend**:
+- Next.js 14+ (App Router)
+- React 18+
+- Tailwind CSS
+- shadcn/ui
+- TypeScript
+- Zustand (client state)
+- TanStack Query (server state)
+
+**Backend**:
+- Next.js API Routes
+- Supabase (PostgreSQL + Auth + Storage)
+- Node.js 18+
+
+**Hosting**:
+- Vercel (Frontend + API)
+- Supabase Cloud (Database)
+
+**Cost**: 100% Free (using free tiers)
+
+See [tech-stack.md](../architecture/tech-stack.md) for details.
+
+### 4. **Recommendation Engine** - DECIDED
+**Hybrid Approach**:
+
+**Phase 1 (MVP)**:
+```
+User Mood → Mood Mapping → Deezer Search → Last.fm Tags → Score & Rank
+```
+
+- Map mood/emoji to keywords and genres
+- Search Deezer API with mood-specific parameters
+- Enhance results with Last.fm tags
+- Score and rank based on relevance
+- Personalize using listening history (Supabase)
+
+**Phase 2 (Future)**:
+- Machine Learning model
+- Collaborative filtering
+- Advanced personalization
+
+### 5. **User Authentication** - DECIDED
+**Progressive Enhancement** (Supabase Auth):
+
+**Phase 1**:
+- Anonymous users (localStorage + temp sessions)
+- Email/Password authentication
+
+**Phase 2**:
+- Google OAuth
+- GitHub OAuth (optional)
+
+**Features**:
+- Row Level Security (RLS)
+- Secure by default
+- Easy migration from anonymous to authenticated
 
 ## Next Steps
 
-1. **Decision Making**: Answer open questions above
-2. **Tech Stack Selection**: Choose technologies (document in `docs/architecture/tech-stack.md`)
-3. **Architecture Design**: Design system architecture
-4. **Feature Specification**: Create detailed specs for MVP features
-5. **Roadmap**: Create development roadmap
+1. ✅ **Decision Making**: Completed - All questions answered
+2. ✅ **Tech Stack Selection**: Completed - See [tech-stack.md](../architecture/tech-stack.md)
+3. 🔄 **Architecture Design**: In Progress - Create system architecture document
+4. ⏳ **Data Models**: Define database schema
+5. ⏳ **Feature Specification**: Create detailed specs for MVP features using `/specify`
+6. ⏳ **Project Setup**: Initialize Next.js project
+7. ⏳ **Supabase Setup**: Configure database and authentication
+8. ⏳ **Development**: Begin MVP implementation
 
 ## Notes
 
@@ -140,6 +199,8 @@ This is a living document that will evolve as we learn more about user needs and
 ---
 
 **To proceed**:
-- Answer open questions
-- Use `/specify` to create detailed feature specifications
-- Use `/plan` to create technical implementation plans
+- ✅ Questions answered - See "Decisions Made" section above
+- ✅ Tech stack documented - See [tech-stack.md](../architecture/tech-stack.md)
+- Next: Use `/specify` to create detailed feature specifications
+- Next: Use `/plan` to create technical implementation plans
+- Next: Set up development environment
