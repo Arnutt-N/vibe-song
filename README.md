@@ -12,9 +12,9 @@ Vibe-Song is a music recommendation system that helps users discover songs based
 
 This project is currently in the initial setup phase. We're establishing the development methodology and project structure.
 
-### Current Phase: Foundation Complete ✅
+### Current Phase: Specifications Complete ✅
 
-**Completed**:
+**Phase 1: Foundation** - ✅ Complete
 - ✅ Research completed on development methodologies
 - ✅ Project structure established
 - ✅ Development workflow defined
@@ -22,10 +22,17 @@ This project is currently in the initial setup phase. We're establishing the dev
 - ✅ Architecture designed
 - ✅ Data models defined
 
-**Next**:
-- ⏳ MVP feature specifications
-- ⏳ Project setup (Next.js + Supabase)
-- ⏳ Initial implementation
+**Phase 2: MVP Specifications** - ✅ Complete
+- ✅ Mood Input Interface specification
+- ✅ Music Recommendation Engine specification
+- ✅ Audio Player specification
+- ✅ User Preferences & Authentication specification
+- ✅ MVP Features summary document
+
+**Next Phase: Implementation**
+- ⏳ Create technical plans for each feature (`/plan`)
+- ⏳ Set up Next.js + Supabase project
+- ⏳ Begin MVP development
 
 ## Development Approach
 
@@ -90,9 +97,16 @@ TBD - Will be documented as features are implemented
 ## Documentation
 
 ### Product & Planning
-- **Vision & Requirements**: [docs/PRPs/001-initial-vision.md](./docs/PRPs/001-initial-vision.md)
+- **Initial Vision**: [docs/PRPs/001-initial-vision.md](./docs/PRPs/001-initial-vision.md)
+- **MVP Features Summary**: [docs/PRPs/002-mvp-features.md](./docs/PRPs/002-mvp-features.md)
 - **Development Methodology**: [RESEARCH_ANALYSIS.md](./RESEARCH_ANALYSIS.md) (Thai)
 - **Project Constitution**: [.claude/CLAUDE.md](./.claude/CLAUDE.md)
+
+### Feature Specifications
+- **Mood Input Interface**: [openspec/changes/mood-input-interface.md](./openspec/changes/mood-input-interface.md)
+- **Music Recommendation Engine**: [openspec/changes/music-recommendation-engine.md](./openspec/changes/music-recommendation-engine.md)
+- **Audio Player**: [openspec/changes/audio-player.md](./openspec/changes/audio-player.md)
+- **User Preferences & Auth**: [openspec/changes/user-preferences.md](./openspec/changes/user-preferences.md)
 
 ### Architecture
 - **Tech Stack**: [docs/architecture/tech-stack.md](./docs/architecture/tech-stack.md)
@@ -131,12 +145,22 @@ See [tech-stack.md](./docs/architecture/tech-stack.md) for details.
 - [x] Architecture design
 - [x] Data models definition
 
-### Phase 2: MVP Development
-- [ ] Core feature specifications
-- [ ] Basic mood input interface
-- [ ] Music recommendation engine
-- [ ] Playback integration
-- [ ] User preference storage
+### Phase 2: Specifications ✅ Complete
+- [x] Mood Input Interface specification
+- [x] Music Recommendation Engine specification
+- [x] Audio Player specification
+- [x] User Preferences & Authentication specification
+- [x] MVP features summary
+
+### Phase 3: MVP Development (Next)
+- [ ] Technical plans for all features
+- [ ] Project setup (Next.js + Supabase)
+- [ ] Implement mood input interface
+- [ ] Implement recommendation engine
+- [ ] Implement audio player
+- [ ] Implement user preferences
+- [ ] Integration testing
+- [ ] MVP launch
 
 ### Phase 3: Enhancement
 - [ ] Learning and improvement
@@ -160,13 +184,26 @@ TBD
 
 ---
 
-**Next Steps**:
-1. ✅ ~~Answer open questions~~ - Completed
-2. ✅ ~~Select tech stack~~ - Completed
-3. ✅ ~~Create architecture documentation~~ - Completed
-4. **Next**: Create MVP feature specifications using `/specify`
-5. **Next**: Set up Next.js project
-6. **Next**: Configure Supabase
-7. **Next**: Begin development
+## MVP Features
+
+Vibe-Song MVP consists of 4 core features:
+
+1. **🎭 Mood Input Interface** - Express mood using emojis and sliders
+2. **🎵 Music Recommendation Engine** - AI-powered mood-based recommendations
+3. **▶️ Audio Player** - 30s preview playback with queue management
+4. **👤 User Preferences** - Accounts, saved tracks, listening history
+
+See [MVP Features Summary](./docs/PRPs/002-mvp-features.md) for complete details.
+
+---
+
+**Progress**:
+1. ✅ Foundation research and setup - Complete
+2. ✅ Tech stack decisions - Complete
+3. ✅ Architecture documentation - Complete
+4. ✅ MVP feature specifications - Complete
+5. **Next**: Create technical plans using `/plan`
+6. **Next**: Set up Next.js + Supabase project
+7. **Next**: Implement features one by one
 
 **Last Updated**: 2025-10-21
