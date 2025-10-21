@@ -12,13 +12,20 @@ Vibe-Song is a music recommendation system that helps users discover songs based
 
 This project is currently in the initial setup phase. We're establishing the development methodology and project structure.
 
-### Current Phase: Foundation Setup
+### Current Phase: Foundation Complete ✅
+
+**Completed**:
 - ✅ Research completed on development methodologies
 - ✅ Project structure established
 - ✅ Development workflow defined
-- 🔄 Tech stack selection in progress
-- ⏳ MVP specification pending
-- ⏳ Initial implementation pending
+- ✅ Tech stack selected and documented
+- ✅ Architecture designed
+- ✅ Data models defined
+
+**Next**:
+- ⏳ MVP feature specifications
+- ⏳ Project setup (Next.js + Supabase)
+- ⏳ Initial implementation
 
 ## Development Approach
 
@@ -82,23 +89,47 @@ TBD - Will be documented as features are implemented
 
 ## Documentation
 
+### Product & Planning
 - **Vision & Requirements**: [docs/PRPs/001-initial-vision.md](./docs/PRPs/001-initial-vision.md)
 - **Development Methodology**: [RESEARCH_ANALYSIS.md](./RESEARCH_ANALYSIS.md) (Thai)
 - **Project Constitution**: [.claude/CLAUDE.md](./.claude/CLAUDE.md)
-- **Architecture**: Coming soon in `docs/architecture/`
+
+### Architecture
+- **Tech Stack**: [docs/architecture/tech-stack.md](./docs/architecture/tech-stack.md)
+- **System Design**: [docs/architecture/system-design.md](./docs/architecture/system-design.md)
+- **Data Models**: [docs/architecture/data-models.md](./docs/architecture/data-models.md)
+
+### Guides
+- **Development Workflow**: [docs/guides/development-workflow.md](./docs/guides/development-workflow.md)
 
 ## Contributing
 
 This project is in early development. Contribution guidelines will be established as the project matures.
 
+## Tech Stack
+
+**Frontend**: Next.js 14+ • React 18+ • TypeScript • Tailwind CSS • shadcn/ui
+
+**Backend**: Next.js API Routes • Supabase (PostgreSQL + Auth)
+
+**External APIs**: Deezer API (music) • Last.fm API (tags/metadata)
+
+**Hosting**: Vercel (app) • Supabase Cloud (database)
+
+**Cost**: 100% Free (using free tiers)
+
+See [tech-stack.md](./docs/architecture/tech-stack.md) for details.
+
+---
+
 ## Roadmap
 
-### Phase 1: Foundation (Current)
+### Phase 1: Foundation ✅ Complete
 - [x] Research and methodology selection
 - [x] Project structure setup
-- [ ] Tech stack selection
-- [ ] Architecture design
-- [ ] Development environment setup
+- [x] Tech stack selection
+- [x] Architecture design
+- [x] Data models definition
 
 ### Phase 2: MVP Development
 - [ ] Core feature specifications
@@ -130,9 +161,12 @@ TBD
 ---
 
 **Next Steps**:
-1. Answer open questions in [001-initial-vision.md](./docs/PRPs/001-initial-vision.md)
-2. Select tech stack
-3. Create architecture documentation
-4. Begin MVP feature specifications
+1. ✅ ~~Answer open questions~~ - Completed
+2. ✅ ~~Select tech stack~~ - Completed
+3. ✅ ~~Create architecture documentation~~ - Completed
+4. **Next**: Create MVP feature specifications using `/specify`
+5. **Next**: Set up Next.js project
+6. **Next**: Configure Supabase
+7. **Next**: Begin development
 
 **Last Updated**: 2025-10-21
