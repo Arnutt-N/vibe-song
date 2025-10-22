@@ -1,3 +1,5 @@
 export { useRecommendations, useQuickRecommendations, useGenreRecommendations } from './use-recommendations'
 export { useAudioPlayer } from './use-audio-player'
 export { useKeyboardShortcuts } from './use-keyboard-shortcuts'
+export { useAuth } from './use-auth'
+export { useSavedTracks, useSavedTrackIds, useSaveTrack } from './use-saved-tracks'

@@ -1,21 +1,63 @@
 'use client'
 
+import { useState } from 'react'
 import { Play, Heart, MoreHorizontal } from 'lucide-react'
 import Image from 'next/image'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { useToast } from '@/components/ui/use-toast'
+import { useSaveTrack } from '@/hooks/use-saved-tracks'
+import { useAuthStore } from '@/store'
 import type { DeezerTrack } from '@/types'
 import { cn } from '@/lib/utils'
 
 interface TrackCardProps {
   track: DeezerTrack
   onPlay?: (track: DeezerTrack) => void
-  onSave?: (track: DeezerTrack) => void
   isPlaying?: boolean
   isSaved?: boolean
 }
 
-export function TrackCard({ track, onPlay, onSave, isPlaying, isSaved }: TrackCardProps) {
+export function TrackCard({ track, onPlay, isPlaying, isSaved: initialIsSaved = false }: TrackCardProps) {
+  const [isSaved, setIsSaved] = useState(initialIsSaved)
+  const { saveTrack, unsaveTrack, isSaving } = useSaveTrack()
+  const { user } = useAuthStore()
+  const { toast } = useToast()
+
+  const handleSaveToggle = async () => {
+    if (!user) {
+      toast({
+        title: 'Sign in required',
+        description: 'Please sign in to save tracks',
+        variant: 'destructive',
+      })
+      return
+    }
+
+    try {
+      if (isSaved) {
+        await unsaveTrack(track.id.toString())
+        setIsSaved(false)
+        toast({
+          title: 'Track removed',
+          description: 'Removed from your saved tracks',
+        })
+      } else {
+        await saveTrack(track)
+        setIsSaved(true)
+        toast({
+          title: 'Track saved',
+          description: 'Added to your saved tracks',
+        })
+      }
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to update track',
+        variant: 'destructive',
+      })
+    }
+  }
   const formatDuration = (seconds: number) => {
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60
@@ -76,7 +118,8 @@ export function TrackCard({ track, onPlay, onSave, isPlaying, isSaved }: TrackCa
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => onSave?.(track)}
+            onClick={handleSaveToggle}
+            disabled={isSaving}
             aria-label={isSaved ? "Unsave track" : "Save track"}
           >
             <Heart className={cn(
