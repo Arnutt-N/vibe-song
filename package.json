@@ -1,6 +1,28 @@
 {
   "name": "vibe-song",
   "version": "0.1.0",
+  "description": "Discover music that matches your vibe - A mood-based music recommendation app",
+  "author": "Arnutt-N",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Arnutt-N/vibe-song.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Arnutt-N/vibe-song/issues"
+  },
+  "homepage": "https://github.com/Arnutt-N/vibe-song#readme",
+  "keywords": [
+    "music",
+    "recommendation",
+    "mood",
+    "nextjs",
+    "supabase",
+    "deezer",
+    "audio-player",
+    "typescript",
+    "react"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",

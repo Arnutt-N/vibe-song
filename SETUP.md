@@ -70,18 +70,71 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Step 6: Verify Setup
 
-You should see the Vibe-Song homepage. The setup is complete!
+You should see the Vibe-Song homepage with the mood input interface. The setup is complete!
 
-## Next Steps
+## Step 7: Configure OAuth (Optional)
 
-Now you're ready to start implementing the MVP features:
+If you want to enable Google or GitHub sign-in:
 
-1. **Mood Input Interface** - Express mood using emojis and sliders
-2. **Music Recommendation Engine** - Get song recommendations based on mood
-3. **Audio Player** - Play 30-second previews
-4. **User Preferences** - Save tracks and build listening history
+### Google OAuth
+1. Go to [Google Cloud Console](https://console.cloud.google.com)
+2. Create a new project or select existing
+3. Enable Google+ API
+4. Create OAuth 2.0 credentials
+5. Add redirect URI: `https://YOUR_PROJECT.supabase.co/auth/v1/callback`
+6. Add credentials to Supabase:
+   - Go to Authentication > Providers > Google
+   - Enable and add Client ID and Secret
 
-See the [technical plans](./docs/PRPs/) for implementation details.
+### GitHub OAuth
+1. Go to [GitHub Developer Settings](https://github.com/settings/developers)
+2. Create a new OAuth App
+3. Set callback URL: `https://YOUR_PROJECT.supabase.co/auth/v1/callback`
+4. Copy Client ID and generate Client Secret
+5. Add credentials to Supabase:
+   - Go to Authentication > Providers > GitHub
+   - Enable and add Client ID and Secret
+
+## Using the Application
+
+The MVP is fully functional! Here's what you can do:
+
+### 1. Express Your Mood
+- Select a mood emoji (Happy, Sad, Energetic, Calm, etc.)
+- Adjust the Energy Level slider (1-10)
+- Adjust the Mood Valence slider (1-10)
+
+### 2. Get Recommendations
+- Click "Find Music" button
+- Wait for personalized recommendations based on your mood
+- Browse through recommended tracks
+
+### 3. Play Music
+- Click on any track's album cover to play
+- Use playback controls at the bottom:
+  - Play/Pause button
+  - Previous/Next track buttons
+  - Progress bar (click to seek)
+  - Volume control
+
+### 4. Keyboard Shortcuts
+- `Space`: Play/Pause
+- `→`: Next track
+- `←`: Previous track
+- `↑`: Increase volume
+- `↓`: Decrease volume
+- `M`: Mute/Unmute
+
+### 5. Save Tracks (Requires Sign In)
+- Click "Sign In" button in header
+- Sign up with email/password or OAuth
+- Click heart icon on tracks to save them
+- Access saved tracks from user menu
+
+### 6. View History
+- Listening history is automatically tracked
+- View from user menu > History
+- See your mood context for each play
 
 ## Project Structure
 
@@ -154,4 +207,4 @@ For issues and questions:
 
 ---
 
-**Ready to build!** 🎵
+**MVP is ready!** Start discovering music that matches your vibe! 🎵✨
