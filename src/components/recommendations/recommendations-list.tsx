@@ -3,6 +3,7 @@
 import { Music2, Loader2 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { TrackCard } from './track-card'
+import { usePlayerStore } from '@/store'
 import type { DeezerTrack, MoodEmoji } from '@/types'
 import { MOOD_MAP } from '@/lib/constants'
 
@@ -10,9 +11,6 @@ interface RecommendationsListProps {
   tracks: DeezerTrack[]
   isLoading?: boolean
   mood?: MoodEmoji | null
-  onPlayTrack?: (track: DeezerTrack) => void
-  onSaveTrack?: (track: DeezerTrack) => void
-  currentTrackId?: number
   savedTrackIds?: Set<number>
 }
 
@@ -20,11 +18,16 @@ export function RecommendationsList({
   tracks,
   isLoading,
   mood,
-  onPlayTrack,
-  onSaveTrack,
-  currentTrackId,
   savedTrackIds = new Set(),
 }: RecommendationsListProps) {
+  const { currentTrack, setQueue, play } = usePlayerStore()
+
+  const handlePlayTrack = (track: DeezerTrack) => {
+    // Set the full recommendations as queue
+    setQueue(tracks)
+    // Play the selected track
+    play(track)
+  }
   if (isLoading) {
     return (
       <Card className="w-full">
@@ -76,9 +79,8 @@ export function RecommendationsList({
           <TrackCard
             key={`${track.id}-${index}`}
             track={track}
-            onPlay={onPlayTrack}
-            onSave={onSaveTrack}
-            isPlaying={currentTrackId === track.id}
+            onPlay={handlePlayTrack}
+            isPlaying={currentTrack?.id === track.id}
             isSaved={savedTrackIds.has(track.id)}
           />
         ))}
