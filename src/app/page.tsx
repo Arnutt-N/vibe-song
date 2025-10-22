@@ -1,19 +1,28 @@
+import { MoodInputInterface } from '@/components/mood'
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-center font-mono text-sm">
-        <h1 className="text-4xl font-bold text-center mb-4">
-          Vibe-Song 🎵
-        </h1>
-        <p className="text-center text-muted-foreground mb-8">
-          Discover music that matches your vibe
-        </p>
-        <div className="bg-card border rounded-lg p-8 text-center">
-          <p className="text-lg mb-4">
-            Project setup complete! 🚀
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-8 lg:p-24">
+      <div className="w-full max-w-4xl space-y-8">
+        {/* Header */}
+        <div className="text-center space-y-2">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Vibe-Song 🎵
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Discover music that matches your vibe
           </p>
-          <p className="text-sm text-muted-foreground">
-            Ready to start building the MVP features
+        </div>
+
+        {/* Mood Input Interface */}
+        <div className="flex justify-center">
+          <MoodInputInterface />
+        </div>
+
+        {/* Info Section */}
+        <div className="text-center text-sm text-muted-foreground">
+          <p>
+            Select your mood, adjust the sliders, and let us find the perfect music for you
           </p>
         </div>
       </div>
