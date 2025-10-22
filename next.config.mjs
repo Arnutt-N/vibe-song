@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['e-cdns-images.dzcdn.net', 'api.deezer.com'],
+    domains: ['cdn-images.dzcdn.net', 'e-cdns-images.dzcdn.net', 'api.deezer.com'],
   },
   experimental: {
     serverActions: {
