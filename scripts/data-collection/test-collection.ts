@@ -10,6 +10,7 @@ import { YouTubeSearcher } from './youtube-search'
 import { validateSongs, printValidationReport } from './data-validator'
 import { exportToCSV } from './csv-exporter'
 import { log, ensureDir, writeJSON } from './utils'
+import { config } from './config'
 import type { Song } from './types'
 
 async function testCollection() {
@@ -33,26 +34,30 @@ async function testCollection() {
     process.exit(1)
   }
 
-  // Load environment variables
+  // Load environment variables (optional - can use config.ts instead)
   require('dotenv').config()
 
-  const spotifyClientId = process.env.SPOTIFY_CLIENT_ID
-  const spotifyClientSecret = process.env.SPOTIFY_CLIENT_SECRET
-  const youtubeApiKey = process.env.YOUTUBE_API_KEY
+  // Use API keys from .env if available, otherwise from config.ts
+  const spotifyClientId = process.env.SPOTIFY_CLIENT_ID || config.spotify.clientId
+  const spotifyClientSecret = process.env.SPOTIFY_CLIENT_SECRET || config.spotify.clientSecret
+  const youtubeApiKey = process.env.YOUTUBE_API_KEY || config.youtube.apiKey
 
   // Validate credentials
   if (!spotifyClientId || spotifyClientId === 'your_spotify_client_id_here') {
-    console.error('❌ Error: SPOTIFY_CLIENT_ID not configured in .env')
+    console.error('❌ Error: SPOTIFY_CLIENT_ID not configured')
+    console.error('Please add API keys to config.ts or create .env file')
     process.exit(1)
   }
 
   if (!spotifyClientSecret || spotifyClientSecret === 'your_spotify_client_secret_here') {
-    console.error('❌ Error: SPOTIFY_CLIENT_SECRET not configured in .env')
+    console.error('❌ Error: SPOTIFY_CLIENT_SECRET not configured')
+    console.error('Please add API keys to config.ts or create .env file')
     process.exit(1)
   }
 
   if (!youtubeApiKey || youtubeApiKey === 'your_youtube_api_key_here') {
-    console.error('❌ Error: YOUTUBE_API_KEY not configured in .env')
+    console.error('❌ Error: YOUTUBE_API_KEY not configured')
+    console.error('Please add API keys to config.ts or create .env file')
     process.exit(1)
   }
 
