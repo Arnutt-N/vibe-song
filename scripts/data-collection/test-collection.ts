@@ -19,22 +19,7 @@ async function testCollection() {
   console.log('='.repeat(60))
   console.log('')
 
-  // Check if .env exists
-  const fs = require('fs')
-  const envPath = '.env'
-
-  if (!fs.existsSync(envPath)) {
-    console.error('❌ Error: .env file not found!')
-    console.error('')
-    console.error('Please create .env file with your API keys:')
-    console.error('  cp .env.example .env')
-    console.error('  # Then edit .env with your API keys')
-    console.error('')
-    console.error('See QUICKSTART.md for instructions on getting API keys.')
-    process.exit(1)
-  }
-
-  // Load environment variables (optional - can use config.ts instead)
+  // Load environment variables from .env if available (optional - can use config.ts instead)
   require('dotenv').config()
 
   // Use API keys from .env if available, otherwise from config.ts
